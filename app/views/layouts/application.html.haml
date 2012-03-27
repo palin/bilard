@@ -1,0 +1,14 @@
+!!! html5
+%html
+  %head
+  %title= @title if @title.present?
+  = stylesheet_link_tag "application", :media => "all"
+  = javascript_include_tag "application" 
+  = csrf_meta_tags
+  %body
+    #container{:class => "#{controller.controller_name}_controller"}
+      #header
+        = render 'layouts/header'
+        = render 'layouts/navigation'
+      #main{:class => "#{controller.action_name}_action"}
+        = yield    
