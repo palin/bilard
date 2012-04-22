@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
-class UsersController < ApplicationController
+class EmployeesController < ApplicationController
   
   def index
-    @title = "Użytkownicy"
-    @users = User.all
+    @title = "Pracownicy"
+    @employees = Employee.all
   end
 
   def show

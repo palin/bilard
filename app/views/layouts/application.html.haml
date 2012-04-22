@@ -1,14 +1,15 @@
 !!! html5
 %html
   %head
-  %title= @title if @title.present?
-  = stylesheet_link_tag "application", :media => "all"
-  = javascript_include_tag "application" 
-  = csrf_meta_tags
-  %body
-    #container{:class => "#{controller.controller_name}_controller"}
-      #header
-        = render 'layouts/header'
-        = render 'layouts/navigation'
-      #main{:class => "#{controller.action_name}_action"}
-        = yield    
+    %title #{"Bigballs.pl | " + @title if @title.present?}
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Pontano+Sans"
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{:class => "#{controller.controller_name}_controller"}
+    %header= render 'layouts/header'
+    %nav= render 'layouts/navigation'
+    %section{:class => "#{controller.action_name}_action main"}
+      %h1= "#{controller.controller_name} #{controller.action_name}"
+      = yield
+    %footer= render 'layouts/footer'

@@ -1,2 +1,8 @@
-= link_to "Login", login_path
-= link_to "Logout", logout_path
+#logo
+  Tutaj jest logo kurczaka
+#user_panel
+  - if current_user
+    = link_to "Logout", current_user, :method => :delete
+    = current_user.login
+  - else
+    = link_to "Login", new_user_session_path

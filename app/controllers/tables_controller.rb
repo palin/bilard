@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
-class UsersController < ApplicationController
-  
+class TablesController < ApplicationController
+
   def index
-    @title = "Użytkownicy"
-    @users = User.all
+    @title = "Stoły"
+    @tables = Table.all
   end
 
   def show

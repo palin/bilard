@@ -1,0 +1,25 @@
+%ul
+  %b Właściciele
+  - @owners.each do |o|
+    %li= o.login
+    %li= link_to 'Usuń', owner_path(o), :method => :delete, :confirm => 'Na pewno chcesz usunąć tego właściciela?'
+    %ul
+      %b Kluby
+      - o.clubs.each do |c|
+        %li= c.id
+        %ul
+          %b Ceny
+        %ul
+          %b Pracownicy
+          - c.employees.each do |e|
+            %li= e.id
+        %ul
+          %b Stoły
+          - c.tables.each do |t|
+            %li= t.id
+            %ul
+              %b Rezerwacje
+              - t.reservations.each do |r|
+                %li= r.id
+
+= link_to 'Nowy', new_owner_path

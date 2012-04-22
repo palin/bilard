@@ -1,0 +1,63 @@
+html {
+  background: #00a0ff;
+  font-family: "Pontano Sans", sans-serif;
+  body {
+    header, nav, footer, section.main {
+      background: #007bff;
+      padding: 20px;
+      margin: 0 auto;
+      width: 1060px;
+      border: 1px solid black; }
+    header {
+      height: 100px;
+      #logo {
+        float: left;
+        height: 80px;
+        width: 800px;
+        border: 1px solid black; }
+      #user_panel {
+        float: left;
+        height: 30px;
+        width: 250px;
+        text-align: right;
+        border: 1px solid black; } }
+    nav {
+      height: 30px;
+      ul {
+        list-style: none;
+        li {
+          float: left;
+          margin-right: 20px; } } }
+    footer {
+      height: 80px;
+      text-align: center; }
+    section.main {
+      min-height: 480px;
+      h1 {}
+      article {
+        text-align: justify;
+        color: white; } } }
+  .user_sessions_controller {
+    .new_action, .create_action {
+      form {
+        width: 280px;
+        margin: 0 auto;
+        width: auto;
+        list-style: none;
+        input {
+          border: none;
+          padding: 10px; }
+        label {
+          margin-top: 3px;
+          width: 65px;
+          display: block;
+          float: left; }
+        input[type=text], input[type=password] {
+          direction: rtl; }
+        input[type=submit] {
+          float: right;
+          background: orange;
+          margin-right: 23px;
+          width: 95px; }
+        .inline-errors {
+          display: inline; } } } } }

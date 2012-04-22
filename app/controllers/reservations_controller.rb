@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
-class UsersController < ApplicationController
-  
+class ReservationsController < ApplicationController
+
   def index
-    @title = "Użytkownicy"
-    @users = User.all
+    @title = "Rezerwacje"
+    @reservations = Reservations.all
   end
 
   def show

@@ -1,2 +1,6 @@
-%h1 
-  New user session
+%h1
+  Logowanie
+= semantic_form_for @user_session, :method => :post do |f|
+  = f.input :login, :label => 'Login'
+  = f.input :password, :label => 'Hasło'
+  = f.submit :value => 'Zaloguj'

@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
-class UsersController < ApplicationController
-  
+class PricesController < ApplicationController
+
   def index
-    @title = "Użytkownicy"
-    @users = User.all
+    @title = "Ceny"
+    @prices = Price.all
   end
 
   def show
