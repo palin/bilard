@@ -15,11 +15,18 @@ class OwnersController < ApplicationController
   end
 
   def create
-    @owner = Owner.new(params[:owner])
+    @owner = Owner.new(:user => params[:owner][:user] params[:owner][:owner])
+    @user = User.new(, :owner_id => @owner.id)
+    #@owner.sa
+    # @owner = Owner.new(params[:owner][:owner])
+    # @user.save
+    # raise @user.errors.to_yaml unless @user.errors.empty?
+    # @owner.save
+    # raise @owner.errors.to_yaml unless @owner.errors.empty?
     if @owner.save!
-      redirect_to owners_path, :notice => 'Utworzono profil właściciela. Oczekuj na aktywację przez administratora.'
+      redirect_to users_path, :notice => 'Utworzono profil właściciela.'
     else
-      redirect_to new_owner_path, :alert => 'Błędy w formularzu'
+      redirect_to new_user_path, :alert => 'Błędy w formularzu'
     end
   end
 

@@ -1,0 +1,12 @@
+%h2 Rejestracja nowego właściciela
+
+= semantic_form_for @owner, :html => {:multipart => true} do |f|
+  = f.semantic_fields_for :user do |u|
+    = u.input :login
+    = u.input :email
+    = u.input :password
+    = u.input :password_confirmation
+  = f.semantic_fields_for :owner do |w|
+    = w.input :name
+    = w.input :surname
+  = f.submit :label => "Zarejestruj"

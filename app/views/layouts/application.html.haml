@@ -3,7 +3,8 @@
   %head
     %title #{"Bigballs.pl | " + @title if @title.present?}
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Pontano+Sans"
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "animate"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body{:class => "#{controller.controller_name}_controller"}
@@ -11,5 +12,9 @@
     %nav= render 'layouts/navigation'
     %section{:class => "#{controller.action_name}_action main"}
       %h1= "#{controller.controller_name} #{controller.action_name}"
+      #notify_box
+        - if flash[:notice]
+          %notification
+            = flash[:notice]
       = yield
     %footer= render 'layouts/footer'

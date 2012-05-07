@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 
   def prices
     @title = 'Cennik'
+    flash[:notice] = "Cennik asd asdsa das das dad noticece"
   end
 
   def about

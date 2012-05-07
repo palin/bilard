@@ -34,6 +34,10 @@ html {
     section.main {
       min-height: 480px;
       h1 {}
+      #notify_box {
+        height: 35px;
+        border: 1px solid black;
+      }
       article {
         text-align: justify;
         color: white; } } }

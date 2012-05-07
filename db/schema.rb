@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327172226) do
+ActiveRecord::Schema.define(:version => 20120426064051) do
 
   create_table "clubs", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20120327172226) do
     t.string   "persistence_token"
     t.string   "perishable_token"
     t.string   "encrypt_password"
+    t.integer  "user_id"
+    t.string   "surname"
   end
 
   create_table "prices", :force => true do |t|
@@ -65,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20120327172226) do
     t.string   "persistence_token"
     t.string   "perishable_token"
     t.string   "encrypt_password"
+    t.integer  "owner_id"
   end
 
 end
