@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426064051) do
+ActiveRecord::Schema.define(:version => 20120509125916) do
 
   create_table "clubs", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -26,17 +26,12 @@ ActiveRecord::Schema.define(:version => 20120426064051) do
   end
 
   create_table "owners", :force => true do |t|
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.string   "login"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "name"
-    t.string   "email"
-    t.string   "crypted_password"
-    t.string   "persistence_token"
-    t.string   "perishable_token"
-    t.string   "encrypt_password"
     t.integer  "user_id"
     t.string   "surname"
+    t.string   "token"
   end
 
   create_table "prices", :force => true do |t|
@@ -49,6 +44,12 @@ ActiveRecord::Schema.define(:version => 20120426064051) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "table_id"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tables", :force => true do |t|
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120426064051) do
     t.string   "perishable_token"
     t.string   "encrypt_password"
     t.integer  "owner_id"
+    t.integer  "role_id"
   end
 
 end

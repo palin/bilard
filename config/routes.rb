@@ -12,6 +12,9 @@ Bilard::Application.routes.draw do
         resources :reservations, :path => 'rezerwacje'
       end
     end
+    collection do
+      post :generate_token, :path => "nowy_token"
+    end
   end
   resources :home, :only => [] do
     collection do

@@ -1,7 +1,6 @@
 %ul
   %b Właściciele
   - @users.each do |o|
-    %li= o.login
-    %li= link_to 'Usuń', user_path(o), :method => :delete, :confirm => 'Na pewno chcesz usunąć tego usera?'
-
-= link_to 'Nowy', new_user_path
+    %li
+      = o.login
+      = link_to 'Usuń', user_path(o), :method => :delete, :confirm => 'Na pewno chcesz usunąć tego usera?'

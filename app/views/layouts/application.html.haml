@@ -11,10 +11,11 @@
     %header= render 'layouts/header'
     %nav= render 'layouts/navigation'
     %section{:class => "#{controller.action_name}_action main"}
-      %h1= "#{controller.controller_name} #{controller.action_name}"
-      #notify_box
-        - if flash[:notice]
-          %notification
-            = flash[:notice]
+      - if flash[:notice]
+        #notice_box
+          = flash[:notice]
+      - elsif flash[:alert]
+        #alert_box
+          = flash[:alert]
       = yield
     %footer= render 'layouts/footer'

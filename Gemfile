@@ -18,6 +18,7 @@ group :assets do
 end
 
 group :development do
+  gem 'pry'
   gem 'mail_safe'
   gem 'thin'
 end

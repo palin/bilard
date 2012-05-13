@@ -33,10 +33,21 @@ html {
       text-align: center; }
     section.main {
       min-height: 480px;
-      h1 {}
-      #notify_box {
+      h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      #notice_box, #alert_box {
         height: 35px;
         border: 1px solid black;
+      }
+      #notice_box {
+        background: green;
+      }
+      #alert_box {
+        background: red;
       }
       article {
         text-align: justify;

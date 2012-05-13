@@ -1,0 +1,24 @@
+%h1
+  Profil
+- if current_user.owner
+  = "Imię: #{current_user.owner.name}"
+  %br
+  = "Nazwisko: #{current_user.owner.surname}"
+  %br
+  = link_to "Edytuj swój profil", edit_user_path(current_user)
+- else
+  = semantic_form_for @owner, :html => {:multipart => true} do |f|
+    = f.input :name
+    = f.input :surname
+    = f.submit :label => "Zaktualizuj profil"
+
+%h2
+  - if @user.owner
+    - if @user.owner.token.present?
+      = "Twój aktualny token to: #{@user.owner.token}"
+    - else
+      = "Nie masz tokena, wygeneruj go."
+  - else
+    Aby wygenerować token, utwórz profil właściciela
+
+= link_to "Wygeneruj nowy token", generate_token_owners_path, :method => :post

@@ -15,19 +15,12 @@ class OwnersController < ApplicationController
   end
 
   def create
-    @owner = Owner.new(:user => params[:owner][:user] params[:owner][:owner])
-    @user = User.new(, :owner_id => @owner.id)
-    #@owner.sa
-    # @owner = Owner.new(params[:owner][:owner])
-    # @user.save
-    # raise @user.errors.to_yaml unless @user.errors.empty?
-    # @owner.save
-    # raise @owner.errors.to_yaml unless @owner.errors.empty?
-    if @owner.save!
-      redirect_to users_path, :notice => 'Utworzono profil właściciela.'
-    else
-      redirect_to new_user_path, :alert => 'Błędy w formularzu'
-    end
+    @owner = Owner.create(params[:owner])
+    @owner.user_id = current_user.id
+    @owner.save!
+    current_user.owner_id = @owner.id
+    current_user.save!
+    redirect_to current_user, :notice => 'Utworzono profil właściciela'
   end
 
   def edit
@@ -50,6 +43,12 @@ class OwnersController < ApplicationController
     else
       redirect_to owners_path, :alert => 'Nie znaleziono takiego właściciela. Być może został usunięty wcześniej.'
     end
+  end
+
+  def generate_token
+    token = (1..48).map{ %w(A B C D E F G H K L M N P R T U V W Y 0 1 2 3 4 6 7 8 9).sample }.join
+    current_user.owner.update_attribute(:token, token)
+    redirect_to user_path(current_user), :notice => "Utworzono nowy token!"
   end
 
 end

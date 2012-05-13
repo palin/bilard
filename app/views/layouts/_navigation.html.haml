@@ -2,4 +2,6 @@
   %li= link_to "O nas", about_home_index_path
   %li= link_to "Oferta", offert_home_index_path
   %li= link_to "Cennik", prices_home_index_path
-  %li= link_to "Właściciele klubów", users_path
+  %li= link_to "Użytkownicy", users_path
+  - if current_user
+    %li= link_to "Twoje kluby", owner_clubs_path(current_user)
