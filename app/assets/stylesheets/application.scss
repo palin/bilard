@@ -1,5 +1,4 @@
 html {
-
   background: url('BG.png');
   background-color: gray;
   -moz-box-shadow:inset 10px 10px 200px black;
@@ -19,7 +18,7 @@ html {
       -khtml-border-radius: 10px;
     }
     header {
-      background: red;
+      background: darkred;
       -moz-box-shadow:inset 1px 2px 135px black;
       -webkit-box-shadow:inset 1px 2px 135px black;
       box-shadow:inset 1px 2px 135px black;
@@ -29,6 +28,7 @@ html {
         float: left;
         height: 80px;
         width: 800px;
+        color: white;
        // border: 1px solid black; 
         -moz-border-radius: 10px;         
         -webkit-border-radius: 10px;
@@ -38,10 +38,22 @@ html {
         box-shadow:inset 1px 1px 15px white;
       }
       #user_panel {
+        a{
+          color: white;
+          text-decoration: none;
+          margin-right: 15px;
+        }
+
+        a:hover{
+          font-weight: bold;
+
+        }
+
         float: left;
         height: 30px;
         width: 250px;
         text-align: center;
+        color: white;
        // border: 1px solid black;
         -moz-box-shadow:inset 1px 1px 15px white;
         -webkit-box-shadow:inset 1px 1px 15px white;
@@ -127,7 +139,7 @@ html {
     }
     section.main {
 
-      background: red;
+      background: darkred;
       -moz-box-shadow:inset 1px 2px 300px black;
       -webkit-box-shadow:inset 1px 2px 300px black;
       box-shadow:inset 1px 2px 300px black;
