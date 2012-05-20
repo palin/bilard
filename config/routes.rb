@@ -31,9 +31,9 @@ Bilard::Application.routes.draw do
       get :offert, :path => 'oferta'
       get :about,  :path => 'onas'
       get :prices, :path => 'cennik'
-      get :get_data
     end
   end
+  match '/get_data', :to => "home#get_data"
 
   root :to => 'home#index'
 

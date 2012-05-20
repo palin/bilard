@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 
-gem 'sqlite'
+gem 'sqlite3'
 gem 'haml'
 gem 'sass'
 gem 'authlogic'
@@ -21,5 +21,4 @@ end
 group :development do
   gem 'pry'
   gem 'mail_safe'
-  gem 'thin'
 end

@@ -21,8 +21,7 @@ class HomeController < ApplicationController
 
   def get_data
     if @owner
-      recognize_request_and_response
-      render_to_string :json => @owner
+      render :json => @owner
     else
       params[:errors] = "[500] Token nie został rozpoznany."
     end
