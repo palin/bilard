@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 
+gem 'sqlite'
 gem 'haml'
 gem 'sass'
 gem 'authlogic'
