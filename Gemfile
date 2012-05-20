@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 
-gem 'sqlite3'
 gem 'haml'
 gem 'sass'
 gem 'authlogic'
@@ -10,6 +9,7 @@ gem 'sanitize'
 gem 'jquery-rails'
 gem 'meta_search'
 gem 'formtastic'
+gem 'json'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

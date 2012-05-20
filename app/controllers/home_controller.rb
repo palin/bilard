@@ -2,6 +2,7 @@
 class HomeController < ApplicationController
 
   before_filter :recognize_token, :only => [:get_data, :set_data]
+
   def index
     @title = 'Strona główna'
   end
