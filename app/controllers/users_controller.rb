@@ -1,7 +1,8 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
 
-  before_filter :check_edit_rights, :only => [:show]
+  before_filter :check_edit_rights, :only => [:show, :edit, :update]
+  before_filter :find_user, :only => [:show, :edit, :update, :destroy]
 
   def index
     @title = "Użytkownicy"
@@ -10,8 +11,6 @@ class UsersController < ApplicationController
 
   def show
     @title = "Profil użytkownika"
-    @user = User.find(params[:id])
-    @owner = Owner.new
   end
 
   def new
@@ -20,6 +19,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params[:user])
+    @user.role = Role.find(1)
     if @user.save!
       redirect_to users_path, :notice => 'Utworzono konto. Uzupełnij dane w profilu.'
     else
@@ -28,19 +28,27 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @owner = @user.owner
   end
 
   def update
+    @user.attributes = params[:user]
 
+    if @user.save
+      flash[:notice] = "Zaktualizowano profil!"
+    else
+      flash[:alert] = "Błąd! Nie można zaktualizować profilu!"
+    end
+
+    redirect_to user_path(current_user)
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy if @user
-
-    redirect_to users_path, :alert => "Usunięto użytkownika"
+    if @user.destroy
+      flash[:alert] = "Usunięto użytkownika!"
+    else
+      flash[:alert] = "Usunięcie użytkownika nie było możliwe!"
+    end
+    redirect_to users_path
   end
 
   def all_clubs
@@ -49,5 +57,14 @@ class UsersController < ApplicationController
 
   def reservations
 
+  end
+
+  private
+
+  def find_user
+    @user = User.find_by_id(params[:id])
+    unless @user
+      redirect_to root_path, :alert => "Nie znaleziono użytkownika!"
+    end
   end
 end

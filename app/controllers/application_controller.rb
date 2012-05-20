@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_owner?
-    current_user and current_user.owner?
+    current_user and current_user.owner and current_user.owner?
   end
 
   def logged_admin?
@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_allowed?
+    find_user
     @user == current_user
   end
 

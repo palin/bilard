@@ -5,7 +5,7 @@
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Pontano+Sans"
     = stylesheet_link_tag "application"
     = stylesheet_link_tag "animate"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "jquery.zclip.min.js"
     = csrf_meta_tags
   %body{:class => "#{controller.controller_name}_controller"}
     %header= render 'layouts/header'

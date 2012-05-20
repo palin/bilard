@@ -1,0 +1,7 @@
+%h1
+  Twoje kluby
+%h2
+  = "Podaj ilość klubów, których jesteś właścicielem:"
+= form_tag(create_clubs_owner_path(@owner)) do
+  = select_tag "club_count", options_for_select((1..10).collect {|v| [v]})
+  = submit_tag "Utwórz kluby"

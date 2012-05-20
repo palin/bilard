@@ -1,2 +1,25 @@
 %h1
   Profil właściciela
+%h2
+  W tym miejscu widzisz informacje, które wprowadziłeś do naszego systemu. Na samym dole tej strony znajduje się Twój unikalny token, który należy wprowadzić do otrzymanej aplikacji desktopowej. Jeśli nie widzisz tam tokena- wygeneruj go.
+
+%h3 Dane właściciela
+= "Imię: #{@owner.name}"
+%br
+= "Nazwisko: #{@owner.surname}"
+%br
+= link_to "Edytuj profil właściciela", edit_owner_path(@owner)
+
+%h3 Token
+- if @owner.token.present?
+  %span.token_info
+    Twój aktualny token to:
+  %input{:type => 'text', :id => 'owner_token', :value => @owner.token, :size => 55}
+  %input{:type => 'button', :id => 'copy_owner_token', :value => 'Kopiuj!'}
+- else
+  %span.token_info
+    Nie masz tokena, wygeneruj go.
+  %input{:type => 'text', :id => 'owner_token', :value => @owner.token, :size => 55, :style => "display:none;"}
+  %input{:type => 'button', :id => 'copy_owner_token', :value => 'Kopiuj!', :style => "display: none;"}
+%br
+= link_to "Wygeneruj nowy token", generate_token_owner_path(@owner), :id => 'generate_new_token'

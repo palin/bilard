@@ -17,8 +17,10 @@ Bilard::Application.routes.draw do
         resources :reservations, :path => 'rezerwacje'
       end
     end
-    collection do
+    member do
       post :generate_token, :path => "nowy_token"
+      get :club_data, :path => "dane_klubow"
+      post :create_clubs, :path => "nowe_kluby"
       get :all_clubs, :path => "kluby"
       get :all_tables, :path => "stoly"
       get :all_reservations, :path => "rezerwacje"

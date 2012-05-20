@@ -1,0 +1,9 @@
+%h1
+  Nowy profil właściciela
+%h2
+  Uzupełnij poniższy formularz, a następnie kliknij "Utwórz profil!", aby zarejestrować swoją działalność w naszym serwisie!
+
+= semantic_form_for @owner, :html => {:multipart => true} do |f|
+  = f.input :name, :label => "Imię:"
+  = f.input :surname, :label => "Nazwisko:"
+  = f.submit :value => "Utwórz profil!"

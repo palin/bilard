@@ -36,6 +36,4 @@ class User < ActiveRecord::Base
   def admin?
     self.role.name == "admin"
   end
-
-
 end
