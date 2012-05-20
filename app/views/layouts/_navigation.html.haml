@@ -1,7 +1,17 @@
 %ul
+  %li= link_to span_tag("Strona główna"), root_path
   %li= link_to "O nas", about_home_index_path
   %li= link_to "Oferta", offert_home_index_path
   %li= link_to "Cennik", prices_home_index_path
-  %li= link_to "Użytkownicy", users_path
-  - if current_user
-    %li= link_to "Twoje kluby", owner_clubs_path(current_user)
+- if logged_normal_user?
+  %ul{:style => "clear:both;"}
+    %li= link_to "Lista klubów", all_clubs_user_path(current_user)
+    %li= link_to "Twoje rezerwacje", reservations_user_path(current_user)
+- if logged_owner?
+  %ul{:style => "clear:both;"}
+    %li= link_to "Wszystkie kluby", all_clubs_owners_path
+    %li= link_to "Wszystkie stoly", all_tables_owners_path
+    %li= link_to "Wszyscy pracownicy", all_employees_owners_path
+    %li= link_to "Wszystkie rezerwacje", all_reservations_owners_path
+- if logged_admin?
+  %ul{:style => "clear:both;"}

@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class OwnersController < ApplicationController
 
+  before_filter :authorized_owner?, :only => [:all_clubs, :all_tables, :all_employees, :all_reservations]
+
   def index
     @title = "Właściciele"
     @owners = Owner.all
@@ -43,6 +45,22 @@ class OwnersController < ApplicationController
     else
       redirect_to owners_path, :alert => 'Nie znaleziono takiego właściciela. Być może został usunięty wcześniej.'
     end
+  end
+
+  def all_clubs
+
+  end
+
+  def all_tables
+
+  end
+
+  def all_employees
+
+  end
+
+  def all_reservations
+
   end
 
   def generate_token

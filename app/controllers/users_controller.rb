@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
 
-  before_filter :check_rights, :only => [:show]
+  before_filter :check_edit_rights, :only => [:show]
 
   def index
     @title = "Użytkownicy"
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @title = "Profil właściciela"
+    @title = "Profil użytkownika"
     @user = User.find(params[:id])
     @owner = Owner.new
   end
@@ -43,11 +43,11 @@ class UsersController < ApplicationController
     redirect_to users_path, :alert => "Usunięto użytkownika"
   end
 
-  private
-
-  def check_rights
-    @user = User.find_by_id(params[:id])
-    redirect_to root_path, :alert => "Nie masz dostępu" unless @user == current_user
+  def all_clubs
+    @clubs = Club.all
   end
 
+  def reservations
+
+  end
 end
