@@ -1,0 +1,6 @@
+%h1
+  Edycja profilu właściciela
+= semantic_form_for @owner do |f|
+  = f.input :name, :label => "Imię:"
+  = f.input :surname, :label => "Nazwisko:"
+  = f.submit :value => "Zaktualizuj profil!"

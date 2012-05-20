@@ -1,0 +1,6 @@
+%h1
+  Wszystkie kluby
+
+%ul
+  - @clubs.each do |c|
+    %li= "#{c.name}"

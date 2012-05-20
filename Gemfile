@@ -10,6 +10,7 @@ gem 'sanitize'
 gem 'jquery-rails'
 gem 'meta_search'
 gem 'formtastic'
+gem 'json'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -18,7 +19,11 @@ group :assets do
 end
 
 group :development do
+  gem 'thin'
   gem 'pry'
   gem 'mail_safe'
-  gem 'thin'
+end
+
+group :production do
+  gem 'pg'
 end

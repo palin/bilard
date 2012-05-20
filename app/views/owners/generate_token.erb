@@ -1,0 +1,4 @@
+jQuery("input#owner_token").val('<%= current_user.owner.token %>');
+jQuery("input#owner_token").css('display', 'inline');
+jQuery("input#copy_owner_token").css('display', 'inline');
+jQuery("span.token_info").text("Twój aktualny token to:")

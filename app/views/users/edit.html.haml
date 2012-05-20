@@ -1,15 +1,9 @@
 %h1
   Edycja konta
-= semantic_form_for @user do |f|
-  = f.input :login
-  = f.input :email
-  = f.input :password
-  = f.input :password_confirmation
-  = f.submit :label => "Zaktualizuj konto"
+  = @user.login
 
-%h1
-  Edycja profilu właściciela
-= semantic_form_for @owner do |f|
-  = f.input :name
-  = f.input :surname
-  = f.submit :label => "Zaktualizuj profil"
+= semantic_form_for @user do |f|
+  = f.input :email, :label => "Email:"
+  = f.input :password, :label => "Hasło:"
+  = f.input :password_confirmation, :label => "Hasło (ponownie):"
+  = f.submit :value => "Zaktualizuj konto"

@@ -1,0 +1,7 @@
+%h1
+  Właściciel -> Wszystkie kluby
+
+%ul
+- @clubs.each do |c|
+  %li= c.id
+  %li= link_to edit_owner_club_path(c)

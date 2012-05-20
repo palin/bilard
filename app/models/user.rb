@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   ################
 
   has_one :owner
+  belongs_to :role
 
   #############
   # CALLBACKS #
@@ -19,4 +20,20 @@ class User < ActiveRecord::Base
   ##############
 
   validates_presence_of :login, :email
+
+  ##############
+  #   METHODS  #
+  ##############
+
+  def normal_user?
+    self.role.name == "user"
+  end
+
+  def owner?
+    self.role.name == "owner"
+  end
+
+  def admin?
+    self.role.name == "admin"
+  end
 end

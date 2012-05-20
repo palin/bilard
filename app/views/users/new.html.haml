@@ -1,8 +1,8 @@
-%h1 Rejestracja nowego konta
+%h1 Rejestracja
 
 = semantic_form_for @user, :html => {:multipart => true} do |f|
-  = f.input :login
-  = f.input :email
-  = f.input :password
-  = f.input :password_confirmation
-  = f.submit :label => "Zarejestruj"
+  = f.input :login, :label => "Login:", :required => false
+  = f.input :email, :label => "Email:", :required => false
+  = f.input :password, :label => "Hasło:", :required => false
+  = f.input :password_confirmation, :label => "Hasło (ponownie):", :required => false
+  = f.submit :value => "Zarejestruj!"

@@ -11,18 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509125916) do
+ActiveRecord::Schema.define(:version => 20120520142440) do
 
   create_table "clubs", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "owner_id"
+    t.string   "name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "post_code"
+    t.text     "description"
   end
 
   create_table "employees", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "club_id"
+    t.integer  "owner_id"
+    t.string   "name"
+    t.string   "surname"
+    t.string   "last_login"
+    t.string   "last_logout"
   end
 
   create_table "owners", :force => true do |t|
@@ -32,12 +42,16 @@ ActiveRecord::Schema.define(:version => 20120509125916) do
     t.integer  "user_id"
     t.string   "surname"
     t.string   "token"
+    t.string   "phone"
+    t.integer  "club_count"
   end
 
   create_table "prices", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "club_id"
+    t.text     "description"
+    t.float    "price"
   end
 
   create_table "reservations", :force => true do |t|
@@ -56,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20120509125916) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "club_id"
+    t.integer  "owner_id"
   end
 
   create_table "users", :force => true do |t|
