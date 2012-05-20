@@ -21,3 +21,7 @@ group :development do
   gem 'pry'
   gem 'mail_safe'
 end
+
+group :production do
+  gem 'pg'
+end
