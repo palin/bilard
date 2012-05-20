@@ -15,3 +15,4 @@
     %li= link_to "Wszystkie rezerwacje", all_reservations_owners_path
 - if logged_admin?
   %ul{:style => "clear:both;"}
+    %li= link_to span_tag("Użytkownicy"), users_path
