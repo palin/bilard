@@ -39,6 +39,10 @@ class ApplicationController < ActionController::Base
     @user == current_user
   end
 
+  def find_owner
+    @owner ||= current_user.owner
+  end
+
   private
 
     def find_user

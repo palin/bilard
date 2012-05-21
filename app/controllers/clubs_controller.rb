@@ -2,6 +2,7 @@
 class ClubsController < ApplicationController
 
   before_filter :find_club, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_owner
 
   def index
     @title = "Kluby"
@@ -18,7 +19,7 @@ class ClubsController < ApplicationController
   end
 
   def create
-    @club = Club.new(params[:club])
+    @club = Club.create(:owner_id => @owner.id)
     if @club.save
       redirect_to owner_clubs_path, :notice => "Utworzono klub!"
     else
@@ -36,8 +37,7 @@ class ClubsController < ApplicationController
 
   def destroy
     @club.destroy if @club
-
-    redirect_to owner_clubs_path, :alert => "Usunięto klub!"
+    render :layout => false
   end
 
   private

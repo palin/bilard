@@ -2,7 +2,9 @@
 //= require jquery_ujs
 //= require_tree .
 jQuery ->
-  $('#notify_box').addClass('animated bounceIn')
+  $('#notice_box').addClass('animated bounceIn')
+jQuery ->
+  $('#alert_box').addClass('animated bounceIn')
 
 jQuery ->
   $('#copy_owner_token').click (e) ->
@@ -19,6 +21,16 @@ jQuery ->
         url: jQuery("a#generate_new_token").attr("href")
         data: {}
         dataType: "script"
+
+jQuery ->
+  $('a.destroy_club').click (e) ->
+    e.preventDefault()
+    jQuery.ajax
+      type: "DELETE"
+      url: jQuery(@).attr("href")
+      data: {}
+      dataType: "script"
+    $(@).parent().parent().fadeOut('slow')
 
 # jQuery ->
 #   $('input#create_clubs_button').click (e) ->

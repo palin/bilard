@@ -6,7 +6,7 @@
     = link_to "Profil użytkownika", user_path(current_user)
     - if logged_owner?
       = link_to "Profil właściciela", owner_path(current_user.owner)
-      = link_to "Twoje kluby", club_data_owner_path(current_user.owner)
+      = link_to "Twoje kluby", owner_clubs_path(current_user.owner)
   - else
     = link_to "Login", new_user_session_path
     = link_to "Rejestracja", new_user_path

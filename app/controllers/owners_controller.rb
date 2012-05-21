@@ -55,7 +55,7 @@ class OwnersController < ApplicationController
   end
 
   def all_clubs
-    @clubs = current_user.owner.clubs
+
   end
 
   def all_tables
@@ -92,7 +92,7 @@ class OwnersController < ApplicationController
       @owner.clubs[i] = Club.create(:name => "Klub_#{i}", :owner_id => @owner.id)
     end
 
-    redirect_to all_clubs_owners_path, :notice => "Utworzono #{params[:club_count]} klubów!"
+    redirect_to all_clubs_owner_path, :notice => "Utworzono #{params[:club_count]} klubów!"
   end
 
   private
