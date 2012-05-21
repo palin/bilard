@@ -4,10 +4,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :find_user
 
-  helper_method :current_user_session, :current_user, :check_edit_rights, :deny_access, :authorized_owner?, :authorized_normal_user?, :logged_owner?, :logged_normal_user?, :logged_admin?
+  helper_method :current_user_session, :current_user, :logged_user_rights_required, :deny_access, :authorized_owner?, :authorized_normal_user?, :logged_owner?, :logged_normal_user?, :logged_admin?
 
-  def check_edit_rights
+  def logged_user_rights_required
     redirect_to root_path, :alert => "Nie masz dostępu" unless user_allowed?
+  end
+
+  def logged_admin_rights_required
+    redirect_to root_path, :alert => "Nie masz dostępu" unless logged_admin?
   end
 
   def authorized_owner?
@@ -23,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_owner?
-    current_user and current_user.owner and current_user.owner?
+    current_user and current_user.owner?
   end
 
   def logged_admin?

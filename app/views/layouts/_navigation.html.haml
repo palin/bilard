@@ -3,16 +3,13 @@
   %li= link_to span_tag("O nas"), about_home_index_path
   %li= link_to span_tag("Oferta"), offert_home_index_path
   %li= link_to span_tag("Cennik"), prices_home_index_path
-- if logged_normal_user?
-  %ul{:style => "clear:both;"}
-    %li= link_to "Lista klubów", all_clubs_user_path(current_user)
-    %li= link_to "Twoje rezerwacje", reservations_user_path(current_user)
-- if logged_owner?
-  %ul{:style => "clear:both;"}
-    %li= link_to "Wszystkie kluby", all_clubs_owners_path
-    %li= link_to "Wszystkie stoly", all_tables_owners_path
-    %li= link_to "Wszyscy pracownicy", all_employees_owners_path
-    %li= link_to "Wszystkie rezerwacje", all_reservations_owners_path
-- if logged_admin?
-  %ul{:style => "clear:both;"}
+  - if logged_normal_user?
+    %li= link_to span_tag("Lista klubów"), all_clubs_user_path(current_user)
+    %li= link_to span_tag("Twoje rezerwacje"), reservations_user_path(current_user)
+  - if logged_owner?
+    %li= link_to span_tag("Kluby"), all_clubs_owner_path(current_user.owner)
+    %li= link_to span_tag("Stoły"), all_tables_owner_path(current_user.owner)
+    %li= link_to span_tag("Pracownicy"), all_employees_owner_path(current_user.owner)
+    %li= link_to span_tag("Rezerwacje"), all_reservations_owner_path(current_user.owner)
+  - if logged_admin?
     %li= link_to span_tag("Użytkownicy"), users_path

@@ -1,6 +1,13 @@
 %ul
-  %b Właściciele
-  - @users.each do |o|
+  %b Użytkownicy
+  - @users.each do |u|
     %li
-      = o.login
-      = link_to 'Usuń', user_path(o), :method => :delete, :confirm => 'Na pewno chcesz usunąć tego usera?'
+      - if u.admin?
+        %strong= u.login
+      - else
+        = u.login
+      - unless u == current_user
+        = link_to "Zrób admina", make_admin_user_path(u), :method => :put
+        = link_to "Zrób właściciela", make_owner_user_path(u), :method => :put
+        = link_to "Zrób normal_usera", make_normal_user_user_path(u), :method => :put
+        = link_to 'Usuń', user_path(u), :method => :delete, :confirm => 'Na pewno chcesz usunąć tego usera?'

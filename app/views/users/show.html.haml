@@ -4,7 +4,10 @@
 = @user.login
 %br
 = @user.email
-
+%br
+- if logged_admin?
+  = link_to "Przydziel prawa użytkownikom", users_path
+%br
 = link_to "Edytuj profil", edit_user_path(@user)
 - unless @user.owner
   %h1

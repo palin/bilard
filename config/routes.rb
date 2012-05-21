@@ -2,6 +2,9 @@ Bilard::Application.routes.draw do
 
   resources :users do
     member do
+      put :make_admin
+      put :make_normal_user
+      put :make_owner
       get :all_clubs, :path => "kluby"
       get :reservations, :path => "rezerwacje"
     end
