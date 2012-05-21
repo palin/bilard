@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
 
-  before_filter :check_edit_rights, :only => [:show, :edit, :update]
-  before_filter :find_user, :only => [:show, :edit, :update, :destroy]
+  before_filter :logged_user_rights_required, :only => [:show, :edit, :update]
+  before_filter :logged_admin_rights_required, :only => [:make_admin, :make_owner, :make_normal_user]
+  before_filter :find_user, :only => [:show, :edit, :update, :destroy, :make_admin, :make_owner, :make_normal_user]
 
   def index
     @title = "Użytkownicy"
@@ -57,6 +58,21 @@ class UsersController < ApplicationController
 
   def reservations
 
+  end
+
+  def make_admin
+    @user.update_attribute(:role, Role.find(3))
+    redirect_to users_path, :notice => "Użytkownik #{@user.login} jest teraz Adminem!"
+  end
+
+  def make_owner
+    @user.update_attribute(:role, Role.find(2))
+    redirect_to users_path, :notice => "Użytkownik #{@user.login} jest teraz Właścicielem!"
+  end
+
+  def make_normal_user
+    @user.update_attribute(:role, Role.find(1))
+    redirect_to users_path, :notice => "Użytkownik #{@user.login} jest teraz zwykłym, szarym użytkownikiem!"
   end
 
   private

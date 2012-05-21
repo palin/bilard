@@ -26,14 +26,14 @@ class User < ActiveRecord::Base
   ##############
 
   def normal_user?
-    self.role.name == "user"
+    self.role and self.role.name == "user"
   end
 
   def owner?
-    self.role.name == "owner"
+    self.owner and self.role and self.role.name == "owner"
   end
 
   def admin?
-    self.role.name == "admin"
+    self.role and self.role.name == "admin"
   end
 end
