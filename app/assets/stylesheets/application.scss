@@ -108,30 +108,30 @@ html {
             a:hover
             {
               span{
-              margin-top: -1px;
-              border-radius: 10px;
-              border: 2px solid black;
-              background: red;
-              -moz-box-shadow:inset 1px 2px 100px black;
-              -webkit-box-shadow:inset 1px 2px 100px black;
-              box-shadow:inset 1px 2px 100px black;
-              color: white; 
-              border-top: none;
-              border-left: none;
+                margin-top: -1px;
+                border-radius: 10px;
+                border: 2px solid black;
+                background: red;
+                -moz-box-shadow:inset 1px 2px 100px black;
+                -webkit-box-shadow:inset 1px 2px 100px black;
+                box-shadow:inset 1px 2px 100px black;
+                color: white; 
+                border-top: none;
+                border-left: none;
               } }
             a:active
             {
               span{
-              margin-top: -1px;
-              background: red;
-              border-radius: 10px;
-              border: 2px solid black;
-              -moz-box-shadow:inset 1px 2px 100px white;
-              -webkit-box-shadow:inset 1px 2px 100px white;
-              box-shadow:inset 1px 2px 100px white;
-              color: white; 
-              border-top: none;
-              border-left: none;
+                margin-top: -1px;
+                background: red;
+                border-radius: 10px;
+                border: 2px solid black;
+                -moz-box-shadow:inset 1px 2px 100px white;
+                -webkit-box-shadow:inset 1px 2px 100px white;
+                box-shadow:inset 1px 2px 100px white;
+                color: white; 
+                border-top: none;
+                border-left: none;
               } }
                } } }
     footer {
@@ -326,7 +326,19 @@ html {
           } } 
 
   .home_controller{
-    .about_action, .offert_action, .price_action {
+    .about_action, .offert_action, .price_action, .index_action {
+      h1{
+        color:white;
+        font-weight: bold;
+        width: 600px;
+        -moz-box-shadow:inset 1px 1px 15px black;
+        -webkit-box-shadow:inset 1px 1px 15px black;
+        box-shadow:inset 1px 1px 15px black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;         
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        padding: 5px;}
       form{}    
 
 
