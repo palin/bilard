@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521162812) do
+ActiveRecord::Schema.define(:version => 20120521230000) do
 
   create_table "clubs", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -86,6 +86,12 @@ ActiveRecord::Schema.define(:version => 20120521162812) do
     t.string   "encrypt_password"
     t.integer  "owner_id"
     t.integer  "role_id"
+    t.string   "surname"
+    t.datetime "birthday"
+    t.string   "city"
+    t.text     "description"
+    t.integer  "best_club"
+    t.string   "picture"
   end
 
 end

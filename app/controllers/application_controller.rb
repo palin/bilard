@@ -7,15 +7,19 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :logged_user_rights_required, :deny_access, :authorized_owner?, :authorized_normal_user?, :logged_owner?, :logged_normal_user?, :logged_admin?
 
   def logged_user_rights_required
-    redirect_to root_path, :alert => "Nie masz dostępu" unless user_allowed?
+    redirect_to root_path, :alert => "Nie masz dostępu" unless user_allowed? or logged_admin?
   end
 
   def logged_admin_rights_required
     redirect_to root_path, :alert => "Nie masz dostępu" unless logged_admin?
   end
 
+  def logged_owner_rights_required
+    redirect_to root_path, :alert => "Nie masz dostępu" unless logged_owner? or logged_admin?
+  end
+
   def authorized_owner?
-    user_allowed? and @user.owner?
+    (user_allowed? and @user.owner?) or logged_admin?
   end
 
   def authorized_normal_user?
@@ -40,7 +44,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_owner
-    @owner ||= current_user.owner
+    @owner ||= Owner.find_by_id(params[:owner_id])
   end
 
   private

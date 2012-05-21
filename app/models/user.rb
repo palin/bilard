@@ -36,4 +36,10 @@ class User < ActiveRecord::Base
   def admin?
     self.role and self.role.name == "admin"
   end
+
+  def avatar
+    hash = Digest::MD5.hexdigest(self.email.squish)
+    gravatar = "http://www.gravatar.com/avatar/#{hash}?s=100"
+    self.picture.present? ? self.picture : gravatar
+  end
 end

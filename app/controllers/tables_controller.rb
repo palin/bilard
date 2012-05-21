@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class TablesController < ApplicationController
 
+  before_filter :logged_owner_rights_required, :authorized_owner?
+
   def index
     @title = "Stoły"
     @tables = Table.all

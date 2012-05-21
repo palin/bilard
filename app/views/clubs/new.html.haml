@@ -1,0 +1,11 @@
+%h1
+  Nowy klub
+
+= semantic_form_for @club, :url => [@owner, @club], :method => :post do |f|
+  = f.input :name, :label => "Nazwa:"
+  = f.input :city, :label => "Miasto:"
+  = f.input :post_code, :label => "Kod pocztowy:"
+  = f.input :street, :label => "Ulica:"
+  = f.input :table_count, :label => "Ilość stołów"
+  = f.input :description, :label => "Opis:"
+  = f.submit :value => "Utwórz klub!"
