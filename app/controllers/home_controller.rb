@@ -2,6 +2,7 @@
 class HomeController < ApplicationController
 
   before_filter :recognize_token, :only => [:get_data, :set_data]
+  before_filter :recognize_params, :only => [:get_data]
 
   def index
     @title = 'Strona główna'
@@ -20,8 +21,8 @@ class HomeController < ApplicationController
   end
 
   def get_data
-    if @owner
-      render :json => @owner
+    if @owner and @club
+      render :json => @club.table_count
     else
       params[:errors] = "[500] Token nie został rozpoznany."
     end
@@ -47,7 +48,14 @@ class HomeController < ApplicationController
     nil
   end
 
-  def recognize_request_and_response
-
+  def recognize_params
+    if params[:club_name] and @owner
+      @owner.clubs.each do |c|
+        if params[:club_name] == c.name.parameterize
+          @club = c
+          return @club
+        end
+      end
+    end
   end
 end
