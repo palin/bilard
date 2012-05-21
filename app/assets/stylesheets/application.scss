@@ -1,6 +1,6 @@
 html {
-  background: url('BG.png');
-  background-color: gray;
+  background: url('BG3.png');
+  background-color: black;
   -moz-box-shadow:inset 10px 10px 200px black;
   -webkit-box-shadow:inset 10px 10px 200px black;
   box-shadow:inset 10px 10px 200px black;
@@ -27,7 +27,7 @@ html {
       #logo {
         float: left;
         height: 80px;
-        width: 800px;
+        width: 780px;
         color: white;
         -moz-border-radius: 10px;         
         -webkit-border-radius: 10px;
@@ -46,7 +46,7 @@ html {
         a:hover{
           font-weight: bold;
         }
-
+        margin-left: 20px;
         float: left;
         height: 30px;
         width: 250px;
@@ -79,7 +79,6 @@ html {
         li {
             a{
               span{
-
                   display: block;
                   background: rgb(246,248,249); /* Old browsers */
                   background: -moz-linear-gradient(top, rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%); /* FF3.6+ */
@@ -95,7 +94,6 @@ html {
                   border: 2px solid white;
                   color: black;
                   padding: 24px;
-                 
                   border-top: none;
                   border-bottom: none;
                   border-left: none;
@@ -103,35 +101,34 @@ html {
                   float: left;
                   margin-right: 0px; 
                   font-weight: bold;
-
                   }}
             a:hover
             {
               span{
-              margin-top: -1px;
-              border-radius: 10px;
-              border: 2px solid black;
-              background: red;
-              -moz-box-shadow:inset 1px 2px 100px black;
-              -webkit-box-shadow:inset 1px 2px 100px black;
-              box-shadow:inset 1px 2px 100px black;
-              color: white; 
-              border-top: none;
-              border-left: none;
+                margin-top: -1px;
+                border-radius: 10px;
+                border: 2px solid black;
+                background: red;
+                -moz-box-shadow:inset 1px 2px 100px black;
+                -webkit-box-shadow:inset 1px 2px 100px black;
+                box-shadow:inset 1px 2px 100px black;
+                color: white; 
+                border-top: none;
+                border-left: none;
               } }
             a:active
             {
               span{
-              margin-top: -1px;
-              background: red;
-              border-radius: 10px;
-              border: 2px solid black;
-              -moz-box-shadow:inset 1px 2px 100px white;
-              -webkit-box-shadow:inset 1px 2px 100px white;
-              box-shadow:inset 1px 2px 100px white;
-              color: white; 
-              border-top: none;
-              border-left: none;
+                margin-top: -1px;
+                background: red;
+                border-radius: 10px;
+                border: 2px solid black;
+                -moz-box-shadow:inset 1px 2px 100px white;
+                -webkit-box-shadow:inset 1px 2px 100px white;
+                box-shadow:inset 1px 2px 100px white;
+                color: white; 
+                border-top: none;
+                border-left: none;
               } }
                } } }
     footer {
@@ -210,8 +207,6 @@ html {
               border-left: none;
               } }
                } } 
-
-
     }
     section.main {
 
@@ -228,14 +223,34 @@ html {
         font-size: 18px;
       }
       #notice_box, #alert_box {
-        height: 35px;
-        border: 1px solid black;
+        text-align: center;
+        border-radius: 10px;
+        -moz-border-radius: 10px;         
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-bottom: none;
+        border-right: none;
       }
       #notice_box {
+        font-weight: bold;
+        padding: 4px;
         background: green;
+        color: white;
+        border: 1px solid white;
+        -moz-box-shadow:inset 1px 1px 9px white;
+        -webkit-box-shadow:inset 1px 1px 9px white;
+        box-shadow:inset 1px 1px 9px white;
+
       }
       #alert_box {
+        font-weight: bold;
+        padding: 4px;
         background: red;
+        color: black;
+        border: 1px solid black;
+        -moz-box-shadow:inset 1px 1px 9px black;
+        -webkit-box-shadow:inset 1px 1px 9px black;
+        box-shadow:inset 1px 1px 9px black;
       }
       article {
         text-align: justify;
@@ -326,11 +341,50 @@ html {
           } } 
 
   .home_controller{
-    .about_action, .offert_action, .price_action {
-      form{}    
+    h1{
+        color:white;
+        font-weight: bold;
+        -moz-box-shadow:inset 1px 1px 15px black;
+        -webkit-box-shadow:inset 1px 1px 15px black;
+        box-shadow:inset 1px 1px 15px black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;         
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        padding: 5px;}
 
+    .index_action {
+      h1{
+        width: 600px;}
+      article
+      {
+        float: left;
+        width: 800px;
+        p{
 
+        }
+      }  
+      aside{
+        float: right;
+        margin-right: 50px;
+      }  
     }
+
+    .about_action {
+      h1{
+        width: 70px;
+        }
+    }
+    .offert_action {
+      h1{
+        width: 74px;
+        }
+    }
+     .prices_action{
+        h1{
+          width: 80px;
+          }
+     }
   }
 
   .users_controller{
@@ -339,7 +393,7 @@ html {
       h1{
         color:white;
         font-weight: bold;
-        width: 280px;
+        width: 125px;
         -moz-box-shadow:inset 1px 1px 15px black;
         -webkit-box-shadow:inset 1px 1px 15px black;
         box-shadow:inset 1px 1px 15px black;
