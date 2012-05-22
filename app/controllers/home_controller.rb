@@ -6,8 +6,8 @@ class HomeController < ApplicationController
 
   def index
     @title = 'Strona główna'
-    
-    #/flash[:alert] = "asdybasjdbjasdbhasd"   -- WYWOŁANIE ALERTA PRZY URUCHOMIENIU STRONY GŁÓWNEJ
+
+    #flash[:alert] = "asdybasjdbjasdbhasd"   -- WYWOŁANIE ALERTA PRZY URUCHOMIENIU STRONY GŁÓWNEJ
   end
 
   def prices

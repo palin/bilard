@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
 
   before_filter :logged_user_rights_required, :only => [:show, :edit, :update]
-  before_filter :logged_admin_rights_required, :only => [:make_admin, :make_owner, :make_normal_user]
+  before_filter :logged_admin_rights_required, :only => [:index, :make_admin, :make_owner, :make_normal_user]
   before_filter :find_user, :only => [:show, :edit, :update, :destroy, :make_admin, :make_owner, :make_normal_user]
 
   def index
@@ -22,9 +22,10 @@ class UsersController < ApplicationController
     @user = User.create(params[:user])
     @user.role = Role.find(1)
     if @user.save!
-      redirect_to users_path, :notice => 'Utworzono konto. Uzupełnij dane w profilu.'
+      current_user_session.destroy if current_user_session
+      redirect_to root_path, :notice => 'Utworzono konto. Zaloguj się oraz uzupełnij dane w profilu.'
     else
-      redirect_to new_user_path, :alert => 'Błędy w formularzu'
+      redirect_to new_user_path, :alert => 'Nie można utworzyć takiego użytkownika!'
     end
   end
 
@@ -33,13 +34,11 @@ class UsersController < ApplicationController
 
   def update
     @user.attributes = params[:user]
-
     if @user.save
       flash[:notice] = "Zaktualizowano profil!"
     else
       flash[:alert] = "Błąd! Nie można zaktualizować profilu!"
     end
-
     redirect_to user_path(current_user)
   end
 

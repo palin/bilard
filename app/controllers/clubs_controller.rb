@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ClubsController < ApplicationController
 
+  before_filter :logged_owner_rights_required, :authorized_owner?, :except => [:show]
   before_filter :find_club, :only => [:show, :edit, :update, :destroy]
   before_filter :find_owner
 
@@ -9,17 +10,15 @@ class ClubsController < ApplicationController
     @clubs = current_user.owner.clubs.all
   end
 
-  def show
-    @title = "Klub #{@club}"
-  end
-
   def new
     @title = "Nowy klub"
     @club = Club.new
   end
 
   def create
-    @club = Club.create(:owner_id => @owner.id)
+    @club = Club.new(params[:club])
+    @club.owner_id = @owner.id
+    @owner.club_count += 1
     if @club.save
       redirect_to owner_clubs_path, :notice => "Utworzono klub!"
     else
@@ -27,12 +26,22 @@ class ClubsController < ApplicationController
     end
   end
 
+  def show
+    @title = "Klub #{@club}"
+  end
+
   def edit
     @title = "Edycja klubu"
   end
 
   def update
-    @club.update(params[:club])
+    @club.attributes = params[:club]
+    if @club.save
+      flash[:notice] = "Pomyślnie zapisano klub!"
+    else
+      flash[:alert] = "Nie udało się zapisać klubu."
+    end
+    redirect_to owner_clubs_path
   end
 
   def destroy
@@ -43,7 +52,10 @@ class ClubsController < ApplicationController
   private
 
   def find_club
-    @club = Club.find(params[:id])
+    @club = Club.find_by_id(params[:id])
+    unless @club
+      redirect_to root_path, :alert => "Nie znaleziono klubu"
+    end
   end
 
 end
