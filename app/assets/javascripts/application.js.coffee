@@ -32,6 +32,14 @@ jQuery ->
       dataType: "script"
     $(@).parent().parent().fadeOut('slow')
 
+
+jQuery ->
+  $('li.string input').click (e) ->
+    if $(@).hasClass('animated')
+      $(@).removeClass()
+    else
+      $(@).addClass('animated flipInX').delay('slow')
+
 # jQuery ->
 #   $('input#create_clubs_button').click (e) ->
 #     e.preventDefault()
