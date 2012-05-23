@@ -31,6 +31,16 @@ jQuery ->
       dataType: "script"
     $(@).parent().parent().fadeOut('slow')
 
+jQuery ->
+  $('a.destroy_table').click (e) ->
+    e.preventDefault()
+    jQuery.ajax
+      type: "DELETE"
+      url: jQuery(@).attr("href")
+      data: {}
+      dataType: "script"
+    $(@).parent().parent().fadeOut('slow')
+
 
 jQuery ->
   $('li.string input').click (e) ->

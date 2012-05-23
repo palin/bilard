@@ -2,7 +2,7 @@
 class ClubsController < ApplicationController
 
   before_filter :logged_owner_rights_required, :authorized_owner?, :except => [:show]
-  before_filter :find_club, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_club, :only => [:show, :edit, :update, :destroy, :create_tables]
   before_filter :find_owner
 
   def index
@@ -22,12 +22,14 @@ class ClubsController < ApplicationController
     if @club.save
       redirect_to owner_clubs_path, :notice => "Utworzono klub!"
     else
-      redirect_to new_owner_club_path, :alert => "Utworzenie klubu nie powiodło się!"
+      flash.now[:alert] = "Utworzenie klubu nie powiodło się!"
+      redirect_to new_owner_club_path
     end
   end
 
   def show
     @title = "Klub #{@club}"
+    @tables = @club.tables
   end
 
   def edit
@@ -38,15 +40,25 @@ class ClubsController < ApplicationController
     @club.attributes = params[:club]
     if @club.save
       flash[:notice] = "Pomyślnie zapisano klub!"
+      redirect_to owner_clubs_path
     else
-      flash[:alert] = "Nie udało się zapisać klubu."
+      flash.now[:alert] = "Nie udało się zapisać klubu!"
+      render :action => :edit
     end
-    redirect_to owner_clubs_path
   end
 
   def destroy
     @club.destroy if @club
     render :layout => false
+  end
+
+  def create_tables
+    @club.update_attribute(:table_count, params[:table_count])
+    (1..@club.table_count).each_with_index do |c, i|
+      @club.tables[i] = Table.create(:club_id => @club.id, :owner_id => @owner.id)
+    end
+
+    redirect_to owner_clubs_path(@owner), :notice => "Utworzono #{params[:tables_count]} stołów!"
   end
 
   private

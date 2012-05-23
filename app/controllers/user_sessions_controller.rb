@@ -10,6 +10,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       redirect_to root_url, :notice => "Zalogowano!"
     else
+      flash.now[:alert] = "Nie można zalogować!"
       render :action => :new
     end
   end
