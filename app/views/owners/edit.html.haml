@@ -1,6 +1,8 @@
 %h1
   Edycja profilu właściciela
 = semantic_form_for @owner do |f|
-  = f.input :name, :label => "Imię:"
-  = f.input :surname, :label => "Nazwisko:"
+  = f.input :name, :label => "Imię:", :required => false
+  = f.input :surname, :label => "Nazwisko:", :required => false
+  = f.input :phone, :label => "Telefon:", :required => false
+  = f.input :club_count, :label => "Ilość klubów:", :required => false
   = f.submit :value => "Zaktualizuj profil!"

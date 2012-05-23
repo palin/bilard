@@ -4,6 +4,8 @@
   Uzupełnij poniższy formularz, a następnie kliknij "Utwórz profil!", aby zarejestrować swoją działalność w naszym serwisie!
 
 = semantic_form_for @owner, :html => {:multipart => true} do |f|
-  = f.input :name, :label => "Imię:"
-  = f.input :surname, :label => "Nazwisko:"
-  = f.submit :value => "Utwórz profil!"
+  = f.input :name, :label => "Imię:", :required => false
+  = f.input :surname, :label => "Nazwisko:", :required => false
+  = f.input :phone, :label => "Telefon:", :required => false
+  = f.input :club_count, :label => "Ilość klubów:", :input_html => {:value => 0}, :required => false
+  = f.submit :value => "Utwórz profil właściciela!"
