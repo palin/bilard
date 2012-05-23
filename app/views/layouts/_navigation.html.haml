@@ -8,8 +8,5 @@
     %li= link_to span_tag("Twoje rezerwacje"), reservations_user_path(current_user)
   - if logged_owner?
     %li= link_to span_tag("Kluby"), all_clubs_owner_path(current_user.owner)
-    %li= link_to span_tag("Stoły"), all_tables_owner_path(current_user.owner)
-    %li= link_to span_tag("Pracownicy"), all_employees_owner_path(current_user.owner)
-    %li= link_to span_tag("Rezerwacje"), all_reservations_owner_path(current_user.owner)
   - if logged_admin?
     %li= link_to span_tag("Użytkownicy"), users_path
