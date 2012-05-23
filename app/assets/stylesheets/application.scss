@@ -7,6 +7,10 @@ html {
 
   font-family: "Pontano Sans", sans-serif;
   body {
+
+    label{
+      text-align: right;
+    }
     form {
       width: 280px;
       margin: 0 auto;
@@ -44,7 +48,7 @@ html {
           }
           ol{
             list-style: none;
-            width: 500px;
+            width: 600px;
             li{
               float: left;
               label{
@@ -73,9 +77,9 @@ html {
         width: 65px;
         display: block;
         float: left; }
-      input[type=text], input[type=password] {
+      input[type=text], input[type=password], input[type=email] #owner_token {
         height:10px;
-        direction: rtl; 
+        text-align: center;
       }
       input[type=submit] {
         float: left;
@@ -125,8 +129,10 @@ html {
 
       h1{
         color:white;
+        text-align: center;
         font-weight: bold;
-        width: 120px;
+        width: 1030px;
+        padding-left: 20px;
         -moz-box-shadow:inset 1px 1px 15px black;
         -webkit-box-shadow:inset 1px 1px 15px black;
         box-shadow:inset 1px 1px 15px black;
@@ -135,9 +141,7 @@ html {
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;
         padding: 5px;
-
     }
-
 
     header, nav, footer, section.main {
       padding: 20px;
@@ -161,12 +165,6 @@ html {
         height: 80px;
         width: 780px;
         color: white;
-        -moz-border-radius: 10px;         
-        -webkit-border-radius: 10px;
-        -khtml-border-radius: 10px;
-        -moz-box-shadow:inset 1px 1px 15px white;
-        -webkit-box-shadow:inset 1px 1px 15px white;
-        box-shadow:inset 1px 1px 15px white;
       }
       #user_panel {
         a{
@@ -184,12 +182,7 @@ html {
         width: 250px;
         text-align: center;
         color: white;
-        -moz-box-shadow:inset 1px 1px 15px white;
-        -webkit-box-shadow:inset 1px 1px 15px white;
-        box-shadow:inset 1px 1px 15px white;
-        -moz-border-radius: 10px;         
-        -webkit-border-radius: 10px;
-        -khtml-border-radius: 10px;
+
        } }
     nav {
       margin-top: 10px;
@@ -211,7 +204,7 @@ html {
         li {
             a{
               span{
-                  width: 80px;
+                  width: 95px;
                   text-align: center;
                   display: block;
                   background: rgb(246,248,249); /* Old browsers */
@@ -291,10 +284,7 @@ html {
       -webkit-box-shadow:inset 1px 2px 300px black;
       box-shadow:inset 1px 2px 300px black;
 
-      min-height: 1000px;
-      h1 {
-        font-size: 24px;
-      }
+      min-height: 460px;
       h2 {
         font-size: 18px;
       }
@@ -332,18 +322,8 @@ html {
         text-align: justify;
         color: white; } } }
 
-  .user_sessions_controller {
-    .new_action, .create_action {
-
-      h1{
-        width: 120px;
-      } 
-      } } 
-
   .home_controller{
     .index_action {
-      h1{
-        width: 110px;}
       article
       {
         float: left;
@@ -357,55 +337,24 @@ html {
         margin-right: 50px;
       }  
     }
-
-    .about_action {
-      h1{
-        width: 70px;
-        }
-    }
-    .offert_action {
-      h1{
-        width: 74px;
-        }
-    }
-     .prices_action{
-        h1{
-          width: 80px;
-          }
-     }
   }
 
   .users_controller{
+   a{
+      text-decoration: none;
+      color: white;
+      margin-left: 20px;
+    }
+    a:hover{
+      color: black;
+      font-weight: bold;
+    }
 
-      h1{
-        width: 125px;
-        }
-
-       a{
-          text-decoration: none;
-          color: white;
-          margin-left: 20px;
-        }
-        a:hover{
-          color: black;
-          font-weight: bold;
-        }
-
-
-    .new_action{   
-      h1{
-
-        width: 125px;
-        }}
   .index_action{
     text-align: left;
     ul{
       margin-left: -20px;
       list-style: none;
-      h1{
-        width: 140px;
-        margin-left: -20px;      
-      }
       li{
         margin-left: -20px; 
         color: white;
@@ -413,31 +362,20 @@ html {
     }
   }
   .show_action{
-     h1{
-        width: 60px;}
-        p{
-          font-weight: bold;
-          margin: 0 auto;
-        }
+    p{
+      font-weight: bold;
+      margin: 0 auto;
+    }
   }
   .edit_action{
-    h1{
-        width: 220px;}
-
-
-      form{
-
-
+    form{
+        height:1000px;
         li{
-         
           float:bottom;
           padding: 10px;
           margin: 0 auto;
         }
 }
-
-
   }
-
 }
 }   
