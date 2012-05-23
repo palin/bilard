@@ -56,6 +56,10 @@ jQuery ->
     else
       $(@).addClass('animated flipInX').delay('slow')
 
+jQuery ->
+  $("ol .fragment #user_birthday_5i").parent().css("display", "none")
+  $("ol .fragment #user_birthday_4i").parent().css("display", "none")
+
 # jQuery ->
 #   $('input#create_clubs_button').click (e) ->
 #     e.preventDefault()

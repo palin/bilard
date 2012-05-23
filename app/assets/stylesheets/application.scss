@@ -14,7 +14,28 @@ html {
       li{
         margin-bottom: 3px;
         height: 36px;
+       }
+      li.datetime{
+        height: auto;
+        padding: 0;
+        fieldset{
+          border: none;
+          legend{
+            height: 10px;
+            label{
+              width: auto;
+            }
+          }
+          ol{
+            list-style: none;
+            li{
+              
+              
+            }
+          }
+        }
       }
+  
       input {
         border: none;
         padding: 8px; 
