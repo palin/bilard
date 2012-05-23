@@ -149,6 +149,21 @@ html {
         padding: 5px;
     }
 
+      article {
+      text-align: justify;
+      color: white; 
+      margin: 0 auto;
+    }
+
+      a{
+        color: white;
+        margin-right: 15px;
+      }
+      a:hover{
+        font-weight: bold;
+      }
+
+
     header, nav, footer, section.main {
       padding: 20px;
       margin: 0 auto;
@@ -188,8 +203,8 @@ html {
         width: 250px;
         text-align: center;
         color: white;
-
        } }
+
     nav {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -324,19 +339,17 @@ html {
         -webkit-box-shadow:inset 1px 1px 9px black;
         box-shadow:inset 1px 1px 9px black;
       }
-      article {
-        text-align: justify;
-        color: white; } } }
+     } }
 
   .home_controller{
     .index_action {
+      ul{
+        list-style: none;
+      }
       article
       {
         float: left;
         width: 800px;
-        p{
-
-        }
       }  
       aside{
         float: right;
@@ -346,42 +359,32 @@ html {
   }
 
   .users_controller{
-   a{
-      text-decoration: none;
-      color: white;
-      margin-left: 20px;
-    }
-    a:hover{
-      color: black;
-      font-weight: bold;
-    }
-
-  .index_action{
-    text-align: left;
-    ul{
-      margin-left: -20px;
-      list-style: none;
-      li{
-        margin-left: -20px; 
-        color: white;
+    .index_action{
+      text-align: left;
+      ul{
+        margin-left: -20px;
+        list-style: none;
+        li{
+          margin-left: -20px; 
+          color: white;
+        }
       }
     }
-  }
-  .show_action{
-    p{
-      font-weight: bold;
-      margin: 0 auto;
+    .show_action{
+      p{
+        font-weight: bold;
+        margin: 0 auto;
+      }
     }
-  }
-  .edit_action{
-    form{
+    .edit_action{
+      form{
         height:1000px;
         li{
           float:bottom;
           padding: 10px;
           margin: 0 auto;
         }
-}
-  }
+      }   
+    }
 }
 }   
