@@ -28,7 +28,7 @@ class ClubsController < ApplicationController
   end
 
   def show
-    @title = "Klub #{@club}"
+    @title = "Klub #{@club.id}"
     @tables = @club.tables
   end
 
@@ -54,12 +54,12 @@ class ClubsController < ApplicationController
   end
 
   def create_tables
-    @club.update_attribute(:table_count, @club.table_count + params[:table_count].to_i)
-    (1..@club.table_count).each_with_index do |c, i|
+    (1..params[:table_count].to_i).each_with_index do |c, i|
       @club.tables[i] = Table.create(:club_id => @club.id, :owner_id => @owner.id)
     end
 
-    redirect_to owner_club_path(:id => @club.id), :notice => "Utworzono #{params[:tables_count]} stołów!"
+    @club.update_attribute(:table_count, @club.table_count + params[:table_count].to_i)
+    redirect_to owner_club_path(:id => @club.id), :notice => "Utworzono #{params[:table_count]} stołów!"
   end
 
   private
