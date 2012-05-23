@@ -6,4 +6,5 @@ class Club < ActiveRecord::Base
   has_one :price
   belongs_to :owner
 
+  validates_presence_of :owner_id, :name, :city, :description, :table_count
 end

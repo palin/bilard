@@ -14,11 +14,15 @@ Bilard::Application.routes.draw do
 
   resources :owners, :path => 'wlasciciel' do
     resources :clubs,     :path => 'kluby' do
+      member do
+        post :create_tables
+      end
       resources :prices,    :path => 'ceny'
       resources :employees, :path => 'pracownicy'
       resources :tables,    :path => 'stoly' do
         resources :reservations, :path => 'rezerwacje'
       end
+
     end
     member do
       post :generate_token, :path => "nowy_token"

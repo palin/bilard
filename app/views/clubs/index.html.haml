@@ -6,7 +6,7 @@
 %ul
   - @clubs.each do |c|
     %ul
-      %li= c.id
+      %li= link_to "Klub #{c.id}", owner_club_path(:owner_id => current_user.owner, :id => c.id)
       %li= link_to "Usuń klub", owner_club_path(:owner_id => current_user.owner, :id => c.id), :class => 'destroy_club'
       %li= link_to "Edytuj klub", edit_owner_club_path(:owner_id => current_user.owner, :id => c.id)
 = link_to "Dodaj klub", new_owner_club_path
