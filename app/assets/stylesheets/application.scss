@@ -390,9 +390,7 @@ html {
 
   .clubs_controller{
 
-    form{
-      height: 550px;
-    }
+
 
     #club_post_code_input{
       margin-bottom: 10px;
@@ -412,6 +410,11 @@ html {
     }
 
     .edit_action{
+
+      form{
+        height: 550px;
+      }
+
       input[type-submit]{
         margin-top: 20px;
         margin-right: 50px;
