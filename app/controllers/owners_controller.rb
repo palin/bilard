@@ -90,11 +90,11 @@ class OwnersController < ApplicationController
   end
 
   def create_clubs
-    @owner.update_attribute(:club_count, @owner.club_count + params[:club_count].to_i)
-    (1..@owner.club_count).each_with_index do |c, i|
+    (1..params[:club_count].to_i).each_with_index do |c, i|
       @owner.clubs[i] = Club.create(:name => "Klub_#{i}", :owner_id => @owner.id, :table_count => 0)
     end
 
+    @owner.update_attribute(:club_count, @owner.club_count + params[:club_count].to_i)
     redirect_to all_clubs_owner_path, :notice => "Utworzono #{params[:club_count]} klubów!"
   end
 

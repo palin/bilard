@@ -46,7 +46,7 @@ jQuery ->
       url: jQuery(@).attr("href")
       data: {}
       dataType: "script"
-    $(@).parent().parent().fadeOut('slow')
+    $(@).parent().parent().parent().fadeOut('slow')
 
 
 jQuery ->
