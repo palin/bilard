@@ -1,2 +1,9 @@
 %h1
   Właściciel -> Wszystkie stoły
+
+%ul
+  - @clubs.each do |c|
+    %li= "Klub #{c.id}"
+    %ul
+      - c.tables.each do |t|
+        %li= t.id

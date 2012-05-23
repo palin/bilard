@@ -22,7 +22,8 @@ class ClubsController < ApplicationController
     if @club.save
       redirect_to owner_clubs_path, :notice => "Utworzono klub!"
     else
-      redirect_to new_owner_club_path, :alert => "Utworzenie klubu nie powiodło się!"
+      flash.now[:alert] = "Utworzenie klubu nie powiodło się!"
+      redirect_to new_owner_club_path
     end
   end
 
@@ -39,10 +40,11 @@ class ClubsController < ApplicationController
     @club.attributes = params[:club]
     if @club.save
       flash[:notice] = "Pomyślnie zapisano klub!"
+      redirect_to owner_clubs_path
     else
-      flash[:alert] = "Nie udało się zapisać klubu."
+      flash.now[:alert] = "Nie udało się zapisać klubu!"
+      render :action => :edit
     end
-    redirect_to owner_clubs_path
   end
 
   def destroy

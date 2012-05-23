@@ -2,7 +2,7 @@
 class OwnersController < ApplicationController
 
   before_filter :logged_owner_rights_required, :authorized_owner?
-  before_filter :find_owner, :only => [:show, :edit, :update, :destroy, :create_clubs]
+  before_filter :find_owner
   before_filter :find_user
 
   def index
@@ -20,13 +20,15 @@ class OwnersController < ApplicationController
   def create
     @owner = Owner.new(params[:owner])
     @owner.user_id = @user.id
-    @owner.save!
-
-    @user.owner_id = @owner.id
-    @user.role = Role.find(2)
-    @user.save!
-
-    redirect_to @owner, :notice => 'Utworzono profil właściciela'
+    if @owner.save
+      @user.owner_id = @owner.id
+      @user.role = Role.find(2)
+      @user.save!
+      redirect_to @owner, :notice => 'Utworzono profil właściciela!'
+    else
+      flash.now[:alert] = "Nie można utworzyć profilu właściciela!"
+      render :action => :new
+    end
   end
 
   def edit
@@ -37,11 +39,11 @@ class OwnersController < ApplicationController
 
     if @owner.save
       flash[:notice] = "Zaktualizowano profil właściciela!"
+      redirect_to owner_path(@owner)
     else
-      flash[:alert] = "Błąd! Nie można zaktualizować profilu właściciela!"
+      flash.now[:alert] = "Błąd! Nie można zaktualizować profilu właściciela!"
+      render :action => :edit
     end
-
-    redirect_to owner_path(@owner)
   end
 
   def destroy
@@ -55,11 +57,11 @@ class OwnersController < ApplicationController
   end
 
   def all_clubs
-
+    @clubs = @owner.clubs
   end
 
   def all_tables
-
+    @clubs = @owner.clubs
   end
 
   def all_employees

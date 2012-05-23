@@ -15,17 +15,18 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new(params[:user])
   end
 
   def create
-    @user = User.create(params[:user])
+    @user = User.new(params[:user])
     @user.role = Role.find(1)
-    if @user.save!
+    if @user.save
       current_user_session.destroy if current_user_session
       redirect_to root_path, :notice => 'Utworzono konto. Zaloguj się oraz uzupełnij dane w profilu.'
     else
-      redirect_to new_user_path, :alert => 'Nie można utworzyć takiego użytkownika!'
+      flash.now[:alert] = 'Nie można utworzyć takiego użytkownika!'
+      render :action => :new
     end
   end
 
@@ -36,10 +37,11 @@ class UsersController < ApplicationController
     @user.attributes = params[:user]
     if @user.save
       flash[:notice] = "Zaktualizowano profil!"
+      redirect_to user_path(current_user)
     else
-      flash[:alert] = "Błąd! Nie można zaktualizować profilu!"
+      flash.now[:alert] = "Nie można zaktualizować profilu!"
+      render :action => :edit
     end
-    redirect_to user_path(current_user)
   end
 
   def destroy
