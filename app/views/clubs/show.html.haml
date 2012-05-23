@@ -1,5 +1,6 @@
 %h1
-  = "Klub #{@club.id}"
+  Klub
+  = @club.name.present? ? @club.name : @club.id
 = form_tag(create_tables_owner_club_path(:owner_id => @owner.id, :club_id => @club.id)) do
   = select_tag "table_count", options_for_select((1..10).collect {|v| [v]})
   = submit_tag "Utwórz stoły"

@@ -8,6 +8,6 @@
     .single_club
       = image_tag 'club.png'
       %ul
-        %li= link_to "Klub #{c.id}", owner_club_path(:owner_id => current_user.owner, :id => c.id)
+        %li= link_to "#{c.name.present? ? c.name : c.id}", owner_club_path(:owner_id => current_user.owner, :id => c.id)
         %li= link_to "Edytuj klub", edit_owner_club_path(:owner_id => current_user.owner, :id => c.id)
         %li= link_to "Usuń klub", owner_club_path(:owner_id => current_user.owner, :id => c.id), :class => 'destroy_club'

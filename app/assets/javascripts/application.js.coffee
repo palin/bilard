@@ -67,6 +67,9 @@ jQuery ->
   $("ol .fragment #user_birthday_5i").parent().css("display", "none")
   $("ol .fragment #user_birthday_4i").parent().css("display", "none")
 
+jQuery ->
+  $("ol .fragment #user_birthday_2i").parent().css("margin-right", "15px")
+
 # jQuery ->
 #   $('input#create_clubs_button').click (e) ->
 #     e.preventDefault()

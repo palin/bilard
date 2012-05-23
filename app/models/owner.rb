@@ -8,5 +8,5 @@ class Owner < ActiveRecord::Base
 
   belongs_to :user
 
-  validates_presence_of :name, :surname, :club_count
+  validates_presence_of :name, :surname
 end
