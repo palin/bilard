@@ -1,12 +1,24 @@
 #logo
-  Tutaj jest logo kurczaka
 #user_panel
-  - if current_user
-    = link_to "Logout", user_session_path(current_user), :method => :delete
-    = link_to "Profil użytkownika", user_path(current_user)
-    - if logged_owner?
-      = link_to "Profil właściciela", owner_path(current_user.owner)
-      = link_to "Twoje kluby", owner_clubs_path(current_user.owner)
-  - else
-    = link_to "Login", new_user_session_path
-    = link_to "Rejestracja", new_user_path
+  %ul
+    - if current_user
+      %li
+        = image_tag "exit.png", :width => 15, :height => 15
+        = link_to "Wyloguj", user_session_path(current_user), :method => :delete
+      %li
+        = image_tag "user_profile.jpg", :width => 15, :height => 15
+        = link_to "Profil użytkownika", user_path(current_user)
+      - if logged_owner?
+        %li
+          = image_tag "owner_profile.png", :width => 15, :height => 15
+          = link_to "Profil właściciela", owner_path(current_user.owner)
+        %li
+          = image_tag "clubs.png", :width => 15, :height => 15
+          = link_to "Twoje kluby", owner_clubs_path(current_user.owner)
+    - else
+      %li
+        = image_tag "log_in.png", :width => 15, :height => 15
+        = link_to "Zaloguj", new_user_session_path
+      %li
+        = image_tag "register.png", :width => 15, :height => 15
+        = link_to "Rejestracja", new_user_path

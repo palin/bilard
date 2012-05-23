@@ -1,5 +1,5 @@
 %h1 Rejestracja
-
+= image_tag "registration.png"
 = semantic_form_for @user, :html => {:multipart => true} do |f|
   = f.input :login, :label => "Login:", :required => false
   = f.input :email, :label => "Email:", :required => false

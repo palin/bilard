@@ -1,0 +1,64 @@
+html
+{
+  font-family: Arial, Verdana;
+  body {
+    section.main {
+      #notice_box, #alert_box {
+        img {
+          float: none;
+        }
+      }
+      img {
+        display:inline;
+        float: left;
+      }
+      form {
+        li {
+          height: auto;
+          width: 500px;
+          .inline-errors {
+            padding-left: 68px;
+            margin: 5px 0px;
+            display: block;
+            font-size: 12px;
+            color: orangeRed;
+          }
+        }
+      }
+      div#user_preview {
+        img {
+          border: 10px solid black;
+          display: block;
+          float:left;
+        }
+        ul {
+          list-style: none;
+          margin-left: 95px;
+          li {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+    header {
+      #logo {
+        height: 100px;
+      }
+      #user_panel {
+        border: none;
+        height: 100px;
+        font-size: 14px;
+        ul {
+          text-align: left;
+          list-style: none;
+          margin-left: -20px;
+          margin-top: 10px;
+          li {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

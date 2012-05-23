@@ -1,5 +1,6 @@
 %h1
   Logowanie
+= image_tag "klodka.png"
 = semantic_form_for @user_session, :method => :post do |f|
   = f.input :login, :label => 'Login:', :required=>false
   = f.input :password, :label => 'Hasło:', :required=>false
