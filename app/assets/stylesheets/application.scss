@@ -207,13 +207,13 @@ html {
       -moz-box-shadow:inset 1px 2px 135px black;
       -webkit-box-shadow:inset 1px 2px 135px black;
       box-shadow:inset 1px 2px 135px black;
-
       height: 100px;
       #logo {
         float: left;
-        height: 80px;
-        width: 780px;
+        height: 81px;
+        width: 778px;
         color: white;
+        margin-top: -11px;
       }
       #user_panel {
         a{
@@ -370,9 +370,12 @@ html {
      } }
 
   .home_controller{
-    .index_action {
+    .index_action, .offert_action {
       ul{
         list-style: none;
+      }
+      img {
+        margin-right: 25px;
       }
       article
       {
