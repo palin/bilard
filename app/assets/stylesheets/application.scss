@@ -13,12 +13,28 @@ html {
       list-style: none;
       li{
         margin-bottom: 3px;
-        height: 36px;
+
+        label{
+          margin-right: 5px;
+        }
        }
+
+        #user_picture_input{
+            margin-top: 10px;
+        }
+
+        #user_best_club_input{
+          margin-bottom: 20px;
+        }
+
       li.datetime{
         height: auto;
         padding: 0;
         fieldset{
+          height: 50px;
+          margin-left: -10px;
+          margin-right: 2px;
+          margin-bottom: 10px;
           border: none;
           legend{
             height: 10px;
@@ -28,15 +44,22 @@ html {
           }
           ol{
             list-style: none;
+            width: 500px;
             li{
-              
-              
+              float: left;
+              label{
+                display: none;
+                margin-left: -20px;
+              }
+              select{
+                margin-left: -20px;
+              }
             }
           }
         }
       }
-  
-      input {
+
+      input, textarea, select{
         border: none;
         padding: 8px; 
          border-radius: 10px;
@@ -70,10 +93,10 @@ html {
         box-shadow:inset 1px 1px 15px black;
         margin-right: 23px;
         margin-top: 10px;
-        width: 95px; }
+        width: auto; }
       .inline-errors {
         display: inline; } 
-      input:focus{
+      input:focus, textarea:focus, select:hover{
         border: 3px solid black;
         border-radius: 10px;
         -moz-border-radius: 10px;         
@@ -101,17 +124,17 @@ html {
       }}
 
       h1{
-      color:white;
-      font-weight: bold;
-      width: 120px;
-      -moz-box-shadow:inset 1px 1px 15px black;
-      -webkit-box-shadow:inset 1px 1px 15px black;
-      box-shadow:inset 1px 1px 15px black;
-      border-radius: 10px;
-      -moz-border-radius: 10px;         
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      padding: 5px;
+        color:white;
+        font-weight: bold;
+        width: 120px;
+        -moz-box-shadow:inset 1px 1px 15px black;
+        -webkit-box-shadow:inset 1px 1px 15px black;
+        box-shadow:inset 1px 1px 15px black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;         
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        padding: 5px;
 
     }
 
@@ -268,7 +291,7 @@ html {
       -webkit-box-shadow:inset 1px 2px 300px black;
       box-shadow:inset 1px 2px 300px black;
 
-      min-height: 480px;
+      min-height: 1000px;
       h1 {
         font-size: 24px;
       }
@@ -320,7 +343,7 @@ html {
   .home_controller{
     .index_action {
       h1{
-        width: 600px;}
+        width: 110px;}
       article
       {
         float: left;
