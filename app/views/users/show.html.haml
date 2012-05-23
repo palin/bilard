@@ -1,18 +1,17 @@
 %h1
   Profil
 #user_preview
-  #credentials
+  %img{:src => @user.avatar, :width => 100, :height => 100}
+  %p
     = @user.login
-    %br
+  %p
     = @user.email
-  #image
-    %img{:src => @user.avatar, :width => 100, :height => 100}
-%br
-- if logged_admin?
-  = link_to "Przydziel prawa użytkownikom", users_path
-%br
-= link_to "Edytuj profil", edit_user_path(@user)
-- unless @user.owner
-  %h1
-    Jesteś właścicielem klubu bilardowego?
-  = link_to "Utwórz profil właściciela", new_owner_path
+  %br
+  - if logged_admin?
+    = link_to "Przydziel prawa użytkownikom", users_path
+  %br
+  = link_to "Edytuj profil", edit_user_path(@user)
+  - unless @user.owner
+    %h1
+      Jesteś właścicielem klubu bilardowego?
+    = link_to "Utwórz profil właściciela", new_owner_path

@@ -199,7 +199,7 @@ html {
       article {
         text-align: justify;
         color: white; } } }
-        
+
   .user_sessions_controller {
     .new_action, .create_action {
 
@@ -337,7 +337,7 @@ html {
   }
 
   .users_controller{
-    .new_action{   
+
       h1{
         color:white;
         font-weight: bold;
@@ -350,6 +350,23 @@ html {
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;
         padding: 5px;
+        }
+
+         a{
+          text-decoration: none;
+          color: white;
+          margin-left: 20px;
+        }
+        a:hover{
+          color: black;
+          font-weight: bold;
+        }
+
+
+    .new_action{   
+      h1{
+
+        width: 125px;
         }
 
       form {
@@ -418,5 +435,37 @@ html {
         -webkit-box-shadow:inset 1px 2px 100px white;
         box-shadow:inset 1px 2px 100px white;
       }
-  }}}
+  }}
+  .index_action{
+    text-align: left;
+    ul{
+      margin-left: -20px;
+        list-style: none;
+      h1{
+        width: 140px;}
+      li{
+        color: white;
+      }
+    }
+  }
+  .show_action{
+     h1{
+        width: 60px;}
+        p{
+          font-weight: bold;
+          margin: 0 auto;
+        }
+  }
+  .edit_action{
+    h1{
+        width: 220px;}
+
+
+
+
+
+
+  }
+
+}
 }   
