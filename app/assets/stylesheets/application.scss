@@ -83,7 +83,7 @@ html {
         width: 65px;
         display: block;
         float: left; }
-      input[type=text], input[type=password], input[type=email] #owner_token {
+      input[type=text], input[type=password], input[type=email] #owner_token, #owner_phone {
         height:10px;
         text-align: center;
       }
@@ -387,4 +387,36 @@ html {
       }   
     }
 }
+
+  .clubs_controller{
+
+    form{
+      height: 550px;
+    }
+
+    #club_post_code_input{
+      margin-bottom: 10px;
+
+    }
+
+    #club_post_code_input{
+      padding-bottom: 10px;
+    }
+
+    #club_street_input{
+      margin-bottom: 3px;
+    }
+
+    #club_description_input{
+      margin-top:10px;
+    }
+
+    .edit_action{
+      input[type-submit]{
+        margin-top: 20px;
+        margin-right: 50px;
+        padding-right: 50px;
+      }
+    }
+  }
 }   
