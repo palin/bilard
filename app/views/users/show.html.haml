@@ -11,9 +11,8 @@
       %li= @user.city
     %li= @user.email
     %li= link_to "Edytuj profil", edit_user_path(@user)
-  %br
-  - if logged_admin?
-    = link_to "Przydziel prawa użytkownikom", users_path
+    - if logged_admin?
+      = link_to "Przydziel prawa użytkownikom", users_path
 
   - unless @user.owner
     %h2

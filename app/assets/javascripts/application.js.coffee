@@ -2,8 +2,15 @@
 //= require jquery_ujs
 //= require_tree .
 jQuery ->
-  $('#notice_box').addClass('animated bounceIn').delay('800').addClass('bounceOut')
-  $('#alert_box').addClass('animated bounceIn').delay('800').addClass('bounceOut')
+  if $('#notice_box').css('display') == "block"
+    $('#notice_box').delay('800').fadeOut("slow")
+  else
+    $('#notice_box').addClass('animated bounceIn')
+
+  if $('#alert_box').css('display') == "block"
+    $('#alert_box').delay('800').fadeOut("slow")
+  else
+    $('#alert_box').addClass('animated bounceIn')
 
 jQuery ->
   $('#copy_owner_token').click (e) ->
@@ -29,7 +36,7 @@ jQuery ->
       url: jQuery(@).attr("href")
       data: {}
       dataType: "script"
-    $(@).parent().parent().fadeOut('slow')
+    $(@).parent().parent().parent().fadeOut('slow')
 
 jQuery ->
   $('a.destroy_table').click (e) ->

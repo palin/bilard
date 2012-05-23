@@ -3,11 +3,11 @@
 = form_tag(create_clubs_owner_path(@owner)) do
   = select_tag "club_count", options_for_select((1..10).collect {|v| [v]})
   = submit_tag "Utwórz kluby"
-%ul
+#clubs_list
   - @clubs.each do |c|
-    %br
-    %ul
-      %li= link_to "Klub #{c.id}", owner_club_path(:owner_id => current_user.owner, :id => c.id)
-      %li= link_to "Usuń klub", owner_club_path(:owner_id => current_user.owner, :id => c.id), :class => 'destroy_club'
-      %li= link_to "Edytuj klub", edit_owner_club_path(:owner_id => current_user.owner, :id => c.id)
-= link_to "Dodaj klub", new_owner_club_path
+    .single_club
+      = image_tag 'club.png'
+      %ul
+        %li= link_to "Klub #{c.id}", owner_club_path(:owner_id => current_user.owner, :id => c.id)
+        %li= link_to "Edytuj klub", edit_owner_club_path(:owner_id => current_user.owner, :id => c.id)
+        %li= link_to "Usuń klub", owner_club_path(:owner_id => current_user.owner, :id => c.id), :class => 'destroy_club'

@@ -39,6 +39,19 @@ html
           }
         }
       }
+      div#clubs_list {
+        margin-left: 100px;
+        margin-top: 10px;
+        .single_club {
+          margin-bottom: 22px;
+          ul {
+            margin-bottom: 0px;
+            padding-top: 50px;
+            list-style: none;
+            margin-left: 100px;
+        }
+        }
+      }
     }
     header {
       #logo {

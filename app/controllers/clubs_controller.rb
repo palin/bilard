@@ -18,7 +18,7 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(params[:club])
     @club.owner_id = @owner.id
-    @owner.club_count += 1
+    @owner.update_attribute(:club_count, @owner.club_count+1)
     if @club.save
       redirect_to owner_clubs_path, :notice => "Utworzono klub!"
     else
@@ -48,12 +48,13 @@ class ClubsController < ApplicationController
   end
 
   def destroy
-    @club.destroy if @club
+    @club.destroy
+    @owner.update_attribute(:club_count, @owner.club_count - 1)
     render :layout => false
   end
 
   def create_tables
-    @club.update_attribute(:table_count, params[:table_count])
+    @club.update_attribute(:table_count, @club.table_count + params[:table_count].to_i)
     (1..@club.table_count).each_with_index do |c, i|
       @club.tables[i] = Table.create(:club_id => @club.id, :owner_id => @owner.id)
     end
