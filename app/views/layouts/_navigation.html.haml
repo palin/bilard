@@ -4,8 +4,7 @@
   %li= link_to span_tag("Oferta"), offert_home_index_path
   %li= link_to span_tag("Cennik"), prices_home_index_path
   - if logged_normal_user?
-    %li= link_to span_tag("Lista klubów"), all_clubs_user_path(current_user)
-    %li= link_to span_tag("Twoje rezerwacje"), reservations_user_path(current_user)
+    %li= link_to span_tag("Kluby"), all_clubs_user_path(current_user)
   - if logged_owner?
     %li= link_to span_tag("Kluby"), all_clubs_owner_path(current_user.owner)
   - if logged_admin?

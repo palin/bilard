@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
 class OwnersController < ApplicationController
 
-  before_filter :logged_owner_rights_required, :authorized_owner?
-  before_filter :find_owner
+  before_filter :logged_owner_rights_required, :authorized_owner?, :except => [:new, :create]
+  before_filter :find_owner, :except => [:new, :create]
   before_filter :find_user
 
   def index
@@ -92,7 +92,7 @@ class OwnersController < ApplicationController
   def create_clubs
     @owner.update_attribute(:club_count, params[:club_count])
     (1..@owner.club_count).each_with_index do |c, i|
-      @owner.clubs[i] = Club.create(:name => "Klub_#{i}", :owner_id => @owner.id)
+      @owner.clubs[i] = Club.create(:name => "Klub_#{i}", :owner_id => @owner.id, :table_count => 0)
     end
 
     redirect_to all_clubs_owner_path, :notice => "Utworzono #{params[:club_count]} klubów!"

@@ -58,7 +58,7 @@ class ClubsController < ApplicationController
       @club.tables[i] = Table.create(:club_id => @club.id, :owner_id => @owner.id)
     end
 
-    redirect_to owner_clubs_path(@owner), :notice => "Utworzono #{params[:tables_count]} stołów!"
+    redirect_to owner_club_path(:id => @club.id), :notice => "Utworzono #{params[:tables_count]} stołów!"
   end
 
   private
