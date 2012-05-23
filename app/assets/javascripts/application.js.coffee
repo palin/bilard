@@ -2,9 +2,8 @@
 //= require jquery_ujs
 //= require_tree .
 jQuery ->
-  $('#notice_box').addClass('animated bounceIn')
-jQuery ->
-  $('#alert_box').addClass('animated bounceIn')
+  $('#notice_box').addClass('animated bounceIn').delay('800').addClass('bounceOut')
+  $('#alert_box').addClass('animated bounceIn').delay('800').addClass('bounceOut')
 
 jQuery ->
   $('#copy_owner_token').click (e) ->
@@ -31,6 +30,21 @@ jQuery ->
       data: {}
       dataType: "script"
     $(@).parent().parent().fadeOut('slow')
+
+
+jQuery ->
+  $('li.string input').click (e) ->
+    if $(@).hasClass('animated')
+      $(@).removeClass()
+    else
+      $(@).addClass('animated flipInX').delay('slow')
+
+jQuery ->
+  $('li.password input').click (e) ->
+    if $(@).hasClass('animated')
+      $(@).removeClass()
+    else
+      $(@).addClass('animated flipInX').delay('slow')
 
 # jQuery ->
 #   $('input#create_clubs_button').click (e) ->
