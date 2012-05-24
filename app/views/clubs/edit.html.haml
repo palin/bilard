@@ -1,11 +1,11 @@
 %h1
   Edycja klubu
+  = @club.name.present? ? @club.name : @club.id
 
 = semantic_form_for @club, :url => [@owner, @club], :method => :put do |f|
   = f.input :name, :label => "Nazwa:"
   = f.input :city, :label => "Miasto:"
   = f.input :post_code, :label => "Kod pocztowy:"
   = f.input :street, :label => "Ulica:"
-  = f.input :table_count, :label => "Ilość stołów"
-  = f.input :description, :label => "Opis:"
+  = f.input :description, :label => "Opis:", :input_html => {:rows => 3}
   = f.submit :value => "Zapisz!"

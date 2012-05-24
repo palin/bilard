@@ -3,12 +3,12 @@
 //= require_tree .
 jQuery ->
   if $('#notice_box').css('display') == "block"
-    $('#notice_box').delay('800').fadeOut("slow")
+    $('#notice_box').delay('1500').fadeOut("slow")
   else
     $('#notice_box').addClass('animated bounceIn')
 
   if $('#alert_box').css('display') == "block"
-    $('#alert_box').delay('800').fadeOut("slow")
+    $('#alert_box').delay('1500').fadeOut("slow")
   else
     $('#alert_box').addClass('animated bounceIn')
 
@@ -66,6 +66,9 @@ jQuery ->
 jQuery ->
   $("ol .fragment #user_birthday_5i").parent().css("display", "none")
   $("ol .fragment #user_birthday_4i").parent().css("display", "none")
+
+jQuery ->
+  $("ol .fragment #user_birthday_2i").parent().css("margin-right", "15px")
 
 # jQuery ->
 #   $('input#create_clubs_button').click (e) ->

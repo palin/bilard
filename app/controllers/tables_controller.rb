@@ -25,6 +25,7 @@ class TablesController < ApplicationController
 
   def destroy
     @table.destroy
+    @club.update_attribute(:table_count, @club.table_count-1)
     render :layout => false
   end
 

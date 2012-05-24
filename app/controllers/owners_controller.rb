@@ -20,6 +20,7 @@ class OwnersController < ApplicationController
   def create
     @owner = Owner.new(params[:owner])
     @owner.user_id = @user.id
+    @owner.club_count = 0
     if @owner.save
       @user.owner_id = @owner.id
       @user.role = Role.find(2)
@@ -94,7 +95,7 @@ class OwnersController < ApplicationController
       @owner.clubs[i] = Club.create(:name => "Klub_#{i}", :owner_id => @owner.id, :table_count => 0)
     end
 
-    @owner.update_attribute(:club_count, @owner.club_count + params[:club_count].to_i)
+    @owner.update_attribute(:club_count, @owner.club_count+params[:club_count].to_i)
     redirect_to all_clubs_owner_path, :notice => "Utworzono #{params[:club_count]} klubów!"
   end
 

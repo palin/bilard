@@ -12,6 +12,34 @@ html {
       text-align: right;
       padding-right: 15px;
     }
+    #owner_token {
+      height:10px;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -khtml-border-radius: 10px;
+      padding: 8px;
+    }
+    #copy_owner_token {
+      border: 2px solid black;
+        background: rgb(246,248,249); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,248,249,1)), color-stop(50%,rgba(229,235,238,1)), color-stop(51%,rgba(215,222,227,1)), color-stop(100%,rgba(245,247,249,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* IE10+ */
+        background: linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
+        -moz-box-shadow:inset 1px 1px 15px black;
+        -webkit-box-shadow:inset 1px 1px 15px black;
+        box-shadow:inset 1px 1px 15px black;
+
+        padding: 8px;
+         border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+    }
     form {
       width: 280px;
       margin: 0 auto;
@@ -71,9 +99,9 @@ html {
 
       input, textarea, select{
         border: none;
-        padding: 8px; 
+        padding: 8px;
          border-radius: 10px;
-        -moz-border-radius: 10px;         
+        -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;}
       label {
@@ -83,7 +111,7 @@ html {
         width: 65px;
         display: block;
         float: left; }
-      input[type=text], input[type=password], input[type=email] #owner_token, #owner_phone {
+      input[type=text], input[type=password], input[type=email] {
         height:10px;
         text-align: center;
       }
@@ -105,11 +133,11 @@ html {
         margin-top: 10px;
         width: auto; }
       .inline-errors {
-        display: inline; } 
+        display: inline; }
       input:focus, textarea:focus, select:hover{
         border: 3px solid black;
         border-radius: 10px;
-        -moz-border-radius: 10px;         
+        -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;
       }
@@ -120,14 +148,14 @@ html {
         -moz-box-shadow:inset 1px 2px 100px black;
         -webkit-box-shadow:inset 1px 2px 100px black;
         box-shadow:inset 1px 2px 100px black;
-        color: white; 
+        color: white;
         font-weight: bold;
       }
       input[type-submit]:focus
       {
         border: 3px solid white;
         background: red;
-        color: black; 
+        color: black;
         -moz-box-shadow:inset 1px 2px 100px white;
         -webkit-box-shadow:inset 1px 2px 100px white;
         box-shadow:inset 1px 2px 100px white;
@@ -143,7 +171,7 @@ html {
         -webkit-box-shadow:inset 1px 1px 15px black;
         box-shadow:inset 1px 1px 15px black;
         border-radius: 10px;
-        -moz-border-radius: 10px;         
+        -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;
         padding: 5px;
@@ -151,7 +179,7 @@ html {
 
       article {
       text-align: justify;
-      color: white; 
+      color: white;
       margin: 0 auto;
     }
 
@@ -168,9 +196,9 @@ html {
       padding: 20px;
       margin: 0 auto;
       width: 1060px;
-      border: 1px solid white; 
+      border: 1px solid white;
       border-radius: 10px;
-      -moz-border-radius: 10px;         
+      -moz-border-radius: 10px;
       -webkit-border-radius: 10px;
       -khtml-border-radius: 10px;
     }
@@ -179,13 +207,13 @@ html {
       -moz-box-shadow:inset 1px 2px 135px black;
       -webkit-box-shadow:inset 1px 2px 135px black;
       box-shadow:inset 1px 2px 135px black;
-
       height: 100px;
       #logo {
         float: left;
-        height: 80px;
-        width: 780px;
+        height: 81px;
+        width: 778px;
         color: white;
+        margin-top: -11px;
       }
       #user_panel {
         a{
@@ -259,7 +287,7 @@ html {
                 -moz-box-shadow:inset 1px 2px 100px black;
                 -webkit-box-shadow:inset 1px 2px 100px black;
                 box-shadow:inset 1px 2px 100px black;
-                color: white; 
+                color: white;
                 border-top: none;
                 border-left: none;
               } }
@@ -273,7 +301,7 @@ html {
                 -moz-box-shadow:inset 1px 2px 100px white;
                 -webkit-box-shadow:inset 1px 2px 100px white;
                 box-shadow:inset 1px 2px 100px white;
-                color: white; 
+                color: white;
                 border-top: none;
                 border-left: none;
               } }
@@ -312,7 +340,7 @@ html {
       #notice_box, #alert_box {
         text-align: center;
         border-radius: 10px;
-        -moz-border-radius: 10px;         
+        -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;
         border-bottom: none;
@@ -342,19 +370,22 @@ html {
      } }
 
   .home_controller{
-    .index_action {
+    .index_action, .offert_action {
       ul{
         list-style: none;
+      }
+      img {
+        margin-right: 25px;
       }
       article
       {
         float: left;
         width: 800px;
-      }  
+      }
       aside{
         float: right;
         margin-right: 50px;
-      }  
+      }
     }
   }
 
@@ -365,7 +396,7 @@ html {
         margin-left: -20px;
         list-style: none;
         li{
-          margin-left: -20px; 
+          margin-left: -20px;
           color: white;
         }
       }
@@ -378,13 +409,13 @@ html {
     }
     .edit_action{
       form{
-        height:1000px;
+        height:700px;
         li{
           float:bottom;
           padding: 10px;
           margin: 0 auto;
         }
-      }   
+      }
     }
 }
 
@@ -422,4 +453,4 @@ html {
       }
     }
   }
-}   
+}
