@@ -87,7 +87,7 @@ html {
         height:10px;
         text-align: center;
       }
-      input[type=submit] {
+      input[type=submit], #copy_owner_token {
         float: left;
         border: 2px solid black;
         background: rgb(246,248,249); /* Old browsers */
